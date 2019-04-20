@@ -19,7 +19,7 @@ class Header extends React.Component {
         </section>
         <Box display="flex" justifyContent="flex-end">
           <Tooltip title="Add Expense">
-            <IconButton>
+            <IconButton onClick={this.props.handleAddExpense}>
               <Add />
             </IconButton>
           </Tooltip>
