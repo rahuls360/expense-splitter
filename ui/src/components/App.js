@@ -3,6 +3,9 @@ import { IconButton } from "@material-ui/core";
 import { unstable_Box as Box } from "@material-ui/core/Box";
 import Tooltip from "@material-ui/core/Tooltip";
 import { Add, ArrowUpward, AttachMoney } from "@material-ui/icons";
+
+import DataTable from "./DataTable";
+
 export class App extends Component {
   render() {
     return (
@@ -33,6 +36,7 @@ export class App extends Component {
             </IconButton>
           </Tooltip>
         </Box>
+        <DataTable />
       </div>
     );
   }
