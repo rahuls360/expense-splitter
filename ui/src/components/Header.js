@@ -23,7 +23,7 @@ class Header extends React.Component {
               <Add />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Clear Dues">
+          <Tooltip title="Clear Dues" onClick={this.props.handlePaymentDialog}>
             <IconButton>
               <AttachMoney />
             </IconButton>

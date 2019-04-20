@@ -5,6 +5,9 @@ import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 
+import DoneOutline from "@material-ui/icons/DoneOutline";
+import Remove from "@material-ui/icons/Remove";
+
 class DataTable extends Component {
   tableHeadings = [
     "Expense",
@@ -12,7 +15,8 @@ class DataTable extends Component {
     "Split by",
     "Expense per person",
     "Payment completed by",
-    "Payment pending by"
+    "Payment pending by",
+    "All dues cleared"
   ];
   render() {
     return (
@@ -26,19 +30,37 @@ class DataTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell>tersDD</TableCell>
-              <TableCell>tersDD</TableCell>
-              <TableCell>tersDD</TableCell>
-              <TableCell>tersDD</TableCell>
-              <TableCell>tersDD</TableCell>
-              <TableCell>tersDD</TableCell>
-            </TableRow>
+            {this.props.expensesList.map(row => (
+              <TableRow>
+                <TableCell>Rs {row.amount}</TableCell>
+                <TableCell>{row.paidby}</TableCell>
+                <TableCell>{row.splitby} people</TableCell>
+                <TableCell>Rs {row.expenseperperson}</TableCell>
+                <TableCell>-</TableCell>
+                <TableCell>-</TableCell>
+                <TableCell>
+                  {row.status ? (
+                    <DoneOutline style={styles.success} />
+                  ) : (
+                    <Remove style={styles.failure} />
+                  )}
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </>
     );
   }
 }
+
+const styles = {
+  success: {
+    color: "green"
+  },
+  failure: {
+    color: "red"
+  }
+};
 
 export default DataTable;
